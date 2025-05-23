@@ -5,7 +5,7 @@ const nextConfig = {
   },
   output: 'export',
   trailingSlash: true,
-  basePath: process.env.NODE_ENV === 'production' ? '/negotiation-prep' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/zaoqi.icu' : '',
 }
 
 module.exports = nextConfig
