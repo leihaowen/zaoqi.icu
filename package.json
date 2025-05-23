@@ -1,0 +1,52 @@
+{
+  "name": "negotiation-prep",
+  "version": "1.0.0",
+  "description": "一个基于 Next.js 14 的专业谈判准备工具，帮助用户在 30 分钟内完成系统性的谈判准备并生成可分享的报告",
+  "keywords": ["negotiation", "batna", "strategy", "nextjs", "react", "typescript"],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/negotiation-prep.git"
+  },
+  "homepage": "https://github.com/yourusername/negotiation-prep#readme",
+  "bugs": {
+    "url": "https://github.com/yourusername/negotiation-prep/issues"
+  },
+  "private": false,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "export": "next build",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "14.2.29",
+    "react": "^18",
+    "react-dom": "^18",
+    "@radix-ui/react-label": "^2.0.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "lucide-react": "^0.294.0",
+    "tailwind-merge": "^2.0.0",
+    "tailwindcss-animate": "^1.0.7",
+    "zustand": "^4.4.6",
+    "immer": "^10.0.3",
+    "chart.js": "^4.4.0",
+    "react-chartjs-2": "^5.2.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^3.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.0"
+  }
+}
