@@ -2,11 +2,14 @@
 
 ## 🐛 问题描述
 
-在GitHub Pages部署后，网站虽然可以访问，但静态资源（字体文件.woff2和JavaScript文件.js）返回404错误，导致页面样式和功能异常。
+在GitHub Pages部署后，网站虽然可以访问，但存在以下问题：
+1. 静态资源（字体文件.woff2和JavaScript文件.js）返回404错误
+2. 图片文件（douyin_head.jpg、douyin_qr_code.jpg）无法正常加载
+3. 页面样式和功能异常
 
 ## 🔍 问题原因
 
-**错误的basePath配置**：
+### 1. 错误的basePath配置
 ```javascript
 // 错误配置
 basePath: process.env.NODE_ENV === 'production' ? '/negotiation-prep' : '',
@@ -17,13 +20,30 @@ basePath: process.env.NODE_ENV === 'production' ? '/negotiation-prep' : '',
 GitHub Pages的URL结构是：`https://用户名.github.io/仓库名/`
 所以正确的basePath应该是 `/zaoqi.icu`
 
+### 2. 图片路径问题
+图片文件使用了绝对路径 `/assets/...`，但在GitHub Pages部署时需要包含basePath前缀。
+
 ## ✅ 解决方案
 
-### 修复next.config.js
+### 1. 修复next.config.js
 ```javascript
 // 正确配置
 basePath: process.env.NODE_ENV === 'production' ? '/zaoqi.icu' : '',
 ```
+
+### 2. 创建路径工具函数
+在 `lib/utils.ts` 中添加：
+```javascript
+// 获取资源路径，自动添加basePath前缀
+export function getAssetPath(path: string): string {
+  const basePath = process.env.NODE_ENV === 'production' ? '/zaoqi.icu' : ''
+  return `${basePath}${path}`
+}
+```
+
+### 3. 更新图片引用
+- **layout.tsx**: 使用 `getAssetPath()` 处理图标路径
+- **page.tsx**: 使用 `getAssetPath()` 处理图片路径
 
 ### 修复后的完整配置
 ```javascript

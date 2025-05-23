@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { CheckCircle, Target, Calculator, BarChart3, Users, FileText, Download, Lightbulb } from 'lucide-react'
 import { useNegotiationStore } from '@/lib/store'
+import { getAssetPath } from '@/lib/utils'
 import Image from 'next/image'
 
 export default function HomePage() {
@@ -210,7 +211,7 @@ export default function HomePage() {
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white/30">
                 <Image
-                  src="/assets/douyin_head.jpg"
+                  src={getAssetPath("/assets/douyin_head.jpg")}
                   alt="抖音头像"
                   width={48}
                   height={48}
@@ -234,7 +235,7 @@ export default function HomePage() {
               onClick={() => window.open('https://v.douyin.com/U_jwEBNoSb8/', '_blank')}
             >
               <Image
-                src="/assets/douyin_qr_code.jpg"
+                src={getAssetPath("/assets/douyin_qr_code.jpg")}
                 alt="抖音二维码"
                 width={160}
                 height={160}

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
+import { getAssetPath } from '@/lib/utils'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -9,9 +10,9 @@ export const metadata: Metadata = {
   title: '彩礼谈判 8 步战前准备',
   description: '专业的彩礼谈判准备工具，帮助您制定最佳谈判策略',
   icons: {
-    icon: '/assets/douyin_head.jpg',
-    shortcut: '/assets/douyin_head.jpg',
-    apple: '/assets/douyin_head.jpg',
+    icon: getAssetPath('/assets/douyin_head.jpg'),
+    shortcut: getAssetPath('/assets/douyin_head.jpg'),
+    apple: getAssetPath('/assets/douyin_head.jpg'),
   },
 }
 
