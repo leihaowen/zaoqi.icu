@@ -1,5 +1,5 @@
 # 构建阶段
-FROM node:18-alpine AS builder
+FROM docker.1ms.run/node:18-alpine AS builder
 
 WORKDIR /app
 
