@@ -10,7 +10,7 @@ COPY . .
 RUN npm run build
 
 # 生产运行阶段
-FROM node:18-alpine AS runner
+FROM docker.1ms.run/node:18-alpine AS runner
 
 WORKDIR /app
 
