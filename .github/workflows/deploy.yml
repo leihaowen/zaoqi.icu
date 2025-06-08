@@ -24,11 +24,8 @@ jobs:
       run: npm ci
       
     - name: Build
-      run: npm run build
-      
-    - name: Export static files
-      run: npm run export
-      
+      run: EXPORT_STATIC=true npm run build
+
     - name: Deploy to GitHub Pages
       if: github.ref == 'refs/heads/main'
       uses: peaceiris/actions-gh-pages@v3
