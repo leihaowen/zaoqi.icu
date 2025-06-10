@@ -110,7 +110,7 @@ export default function StepPageClient({ id }: StepPageClientProps) {
         </div>
 
         {/* 主要内容 */}
-        <Card className="mb-8">
+        <Card className="mb-8" id="export-card">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">

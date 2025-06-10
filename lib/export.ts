@@ -16,8 +16,13 @@ export async function exportToPNG(elementId: string, options: ExportOptions = { 
       throw new Error(`Element with id "${elementId}" not found`)
     }
 
+    // 等待内容渲染完成
+    await new Promise(resolve => requestAnimationFrame(resolve))
+
+    // 导出图片
     const canvas = await html2canvas(element, {
-      scale: options.scale || 2,
+      // 动态适配高分屏，提升导出 PNG 清晰度
+      scale: options.scale || window.devicePixelRatio || 2,
       useCORS: true,
       allowTaint: true,
       backgroundColor: '#ffffff',
@@ -50,9 +55,12 @@ export async function exportToPDF(elementId: string, options: ExportOptions = { 
       throw new Error(`Element with id "${elementId}" not found`)
     }
 
+    // 等待内容渲染完成
+    await new Promise(resolve => requestAnimationFrame(resolve))
+
     // 先生成高质量的 canvas
     const canvas = await html2canvas(element, {
-      scale: options.scale || 2,
+      scale: options.scale || window.devicePixelRatio || 2,
       useCORS: true,
       allowTaint: true,
       backgroundColor: '#ffffff',
@@ -388,12 +396,7 @@ export function generateExportContent(data: any) {
           
           <!-- 中间：抖音二维码 -->
           <div style="text-align: center;">
-            <div style="width: 80px; height: 80px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px;">
-              <div style="font-size: 12px; color: #666; text-align: center; line-height: 1.2;">
-                抖音<br/>二维码<br/>
-                <span style="font-size: 10px;">36095284700</span>
-              </div>
-            </div>
+            <img src="/assets/douyin_qr_code.jpg" alt="抖音二维码" style="width: 80px; height: 80px; border-radius: 8px; margin: 0 auto 8px; display: block;" />
             <div style="font-size: 11px; opacity: 0.8;">扫码关注</div>
           </div>
           
