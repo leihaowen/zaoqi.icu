@@ -279,6 +279,17 @@ export default function HomePage() {
         </div>
         
         <div className="mt-8 pt-6 border-t border-white/30 text-xs opacity-80">
+          <div className="mb-2">
+            深圳市裕言科技有限公司 | 
+            <a
+              href="https://beian.miit.gov.cn/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-yellow-300 transition-colors cursor-pointer"
+            >
+              粤ICP备2025361159号-4
+            </a>
+          </div>
           本工具完全免费使用 | 数据仅保存在本地浏览器，确保隐私安全 | © zaoqi.icu
         </div>
       </div>
